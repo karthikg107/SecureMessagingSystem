@@ -1,6 +1,6 @@
-from auth import register_user
+from auth import login_user
 
-register_user(
+login_user(
     "karthik",
-    "123456"
+    "wrongpassword"
 )

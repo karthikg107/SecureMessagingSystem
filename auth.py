@@ -24,3 +24,29 @@ def register_user(username, password):
         print("Username already exists")
 
     conn.close()
+
+def login_user(username, password):
+    conn = sqlite3.connect("secure_messaging.db")
+    cursor = conn.cursor()
+
+    cursor.execute(
+        "SELECT password_hash FROM users WHERE username = ?",
+        (username,)
+    )
+
+    result = cursor.fetchone()
+
+    conn.close()
+
+    if result:
+        stored_hash = result[0]
+
+        if bcrypt.checkpw(
+            password.encode(),
+            stored_hash.encode()
+        ):
+            print("Login successful")
+            return True
+
+    print("Invalid username or password")
+    return False    
