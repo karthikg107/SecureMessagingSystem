@@ -1,18 +1,20 @@
-from encryption import (
-    encrypt_message,
-    decrypt_message
+from integrity import (
+    generate_hmac,
+    verify_hmac
 )
 
-message = "Hello Karthik"
+original_message = "Hello Karthik"
 
-encrypted = encrypt_message(message)
+message_hmac = generate_hmac(original_message)
 
-print("Encrypted:")
-print(encrypted)
+print("Original HMAC:")
+print(message_hmac)
 
 print()
 
-decrypted = decrypt_message(encrypted)
+tampered_message = "Hello Hacker"
 
-print("Decrypted:")
-print(decrypted)
+if verify_hmac(tampered_message, message_hmac):
+    print("Integrity Verified")
+else:
+    print("Integrity Failed")
