@@ -1,13 +1,18 @@
-from attack import detect_replay_attack
+from encryption import (
+    encrypt_message,
+    decrypt_message
+)
 
-message_id = "MSG001"
+message = "Hello Karthik"
 
-if detect_replay_attack(message_id):
-    print("Replay Attack Detected")
-else:
-    print("Message Accepted")
+encrypted = encrypt_message(message)
 
-if detect_replay_attack(message_id):
-    print("Replay Attack Detected")
-else:
-    print("Message Accepted")
+print("Encrypted:")
+print(encrypted)
+
+print()
+
+decrypted = decrypt_message(encrypted)
+
+print("Decrypted:")
+print(decrypted)
