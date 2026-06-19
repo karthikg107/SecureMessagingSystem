@@ -1,20 +1,13 @@
-from integrity import (
-    generate_hmac,
-    verify_hmac
-)
+from attack import detect_replay_attack
 
-original_message = "Hello Karthik"
+message_id = "MSG001"
 
-message_hmac = generate_hmac(original_message)
-
-print("Original HMAC:")
-print(message_hmac)
-
-print()
-
-tampered_message = "Hello Hacker"
-
-if verify_hmac(tampered_message, message_hmac):
-    print("Integrity Verified")
+if detect_replay_attack(message_id):
+    print("Replay Attack Detected")
 else:
-    print("Integrity Failed")
+    print("Message Accepted")
+
+if detect_replay_attack(message_id):
+    print("Replay Attack Detected")
+else:
+    print("Message Accepted")
