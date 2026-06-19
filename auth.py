@@ -20,10 +20,15 @@ def register_user(username, password):
         conn.commit()
         print("User registered successfully")
 
+        conn.close()
+        return True
+
     except sqlite3.IntegrityError:
         print("Username already exists")
 
-    conn.close()
+        conn.close()
+        return False
+
 
 def login_user(username, password):
     conn = sqlite3.connect("secure_messaging.db")
