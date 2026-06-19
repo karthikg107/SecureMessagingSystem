@@ -2,3 +2,17 @@
 2026-06-19 22:58:43,151 - INFO - Failed login attempt for demo2
 2026-06-19 22:58:59,649 - INFO - Registration failed for demo1
 2026-06-19 22:59:03,825 - INFO - User demo1 logged in
+2026-06-19 23:13:53,612 - INFO - Failed login attempt for demo23
+2026-06-19 23:14:09,074 - INFO - Registration failed for demo1
+2026-06-19 23:14:12,087 - INFO - User demo1 logged in
+2026-06-19 23:14:22,945 - INFO - Message encrypted
+2026-06-19 23:14:26,675 - INFO - Message encrypted
+2026-06-19 23:14:27,935 - INFO - Message encrypted
+2026-06-19 23:14:29,398 - INFO - Message encrypted
+2026-06-19 23:14:31,647 - INFO - Message decrypted
+2026-06-19 23:14:34,832 - INFO - Message decrypted
+2026-06-19 23:14:37,750 - INFO - Integrity verified
+2026-06-19 23:14:38,682 - INFO - Integrity verified
+2026-06-19 23:14:41,738 - INFO - Message accepted
+2026-06-19 23:14:43,008 - INFO - Replay attack detected
+2026-06-19 23:14:44,664 - INFO - Replay attack detected
