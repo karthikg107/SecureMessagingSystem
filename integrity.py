@@ -1,5 +1,6 @@
 import hmac
 import hashlib
+from logger import log_event
 
 SECRET_KEY = b"secure_key"
 
@@ -15,7 +16,14 @@ def generate_hmac(message):
 def verify_hmac(message, received_hmac):
     calculated_hmac = generate_hmac(message)
 
-    return hmac.compare_digest(
+    result = hmac.compare_digest(
         calculated_hmac,
         received_hmac
     )
+
+    if result:
+        log_event("Integrity verified")
+    else:
+        log_event("Integrity verification failed")
+
+    return result

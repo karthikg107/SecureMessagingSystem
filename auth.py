@@ -1,5 +1,6 @@
 import sqlite3
 import bcrypt
+from logger import log_event
 
 
 def register_user(username, password):
@@ -18,13 +19,22 @@ def register_user(username, password):
         )
 
         conn.commit()
+
         print("User registered successfully")
+
+        log_event(
+            f"User {username} registered"
+        )
 
         conn.close()
         return True
 
     except sqlite3.IntegrityError:
         print("Username already exists")
+
+        log_event(
+            f"Registration failed for {username}"
+        )
 
         conn.close()
         return False
@@ -51,7 +61,17 @@ def login_user(username, password):
             stored_hash.encode()
         ):
             print("Login successful")
+
+            log_event(
+                f"User {username} logged in"
+            )
+
             return True
 
     print("Invalid username or password")
-    return False    
+
+    log_event(
+        f"Failed login attempt for {username}"
+    )
+
+    return False

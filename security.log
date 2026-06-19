@@ -1,1 +1,4 @@
 2026-06-19 19:56:49,244 - INFO - Login Successful
+2026-06-19 22:58:43,151 - INFO - Failed login attempt for demo2
+2026-06-19 22:58:59,649 - INFO - Registration failed for demo1
+2026-06-19 22:59:03,825 - INFO - User demo1 logged in
